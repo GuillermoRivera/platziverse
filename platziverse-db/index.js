@@ -14,6 +14,10 @@ module.exports = async function (config) {
 
   await sequalize.authenticate()
 
+  if (config.setup) {
+    await sequalize.sync({ force: true }) // Si la DB existe, bórrela y cree una nueva
+  }
+
   const Agent = {}
   const Metric = {}
 
