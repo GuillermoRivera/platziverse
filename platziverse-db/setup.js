@@ -1,3 +1,4 @@
+
 'use strict'
 
 const db = require('./')
@@ -21,10 +22,10 @@ async function setup () {
   }
 
   const config = {
-    database: process.env.DB_NAME || 'platziverse',
-    username: process.env.DB_USER || 'platzi',
-    password: process.env.DB_PASS || 'platzi',
-    host: process.env.DB_HOST || 'localhost',
+    database: process.env.DB_PLATZIVERSE_NAME || 'platziverse',
+    username: process.env.DB_PLATZIVERSE_USER || 'platziverse',
+    password: process.env.DB_PLATZIVERSE_PASS || 'platziverse',
+    host: process.env.DB_PLATZIVERSE_HOST || 'localhost',
     dialect: 'postgres',
     logging: s => debug(s),
     setup: true

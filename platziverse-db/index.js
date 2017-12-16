@@ -17,19 +17,19 @@ module.exports = async function (config) {
       raw: true
     }
   })
-  const sequalize = setupDatabase(config)
+
+  const sequelize = setupDatabase(config)
   const AgentModel = setupAgentModel(config)
   const MetricModel = setupMetricModel(config)
 
   AgentModel.hasMany(MetricModel)
   MetricModel.belongsTo(AgentModel)
 
-  await sequalize.authenticate()
+  await sequelize.authenticate()
 
   if (config.setup) {
-    await sequalize.sync({ force: true }) // Si la DB existe, bórrela y cree una nueva
+    await sequelize.sync({ force: true }) // Si la BD existe, bórrela y cree una nueva
   }
-
   const Agent = {}
   const Metric = {}
 
