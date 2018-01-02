@@ -6,7 +6,7 @@
   "scripts": {
     "lint": "standard",
     "setup": "DEBUG=platziverse:* node setup.js",
-    "test": "DEBUG=platziverse:* ava tests/ --verbose"
+    "test": "DEBUG=platziverse:* nyc --reporter=lcov ava tests/ --verbose"
   },
   "repository": {
     "type": "git",
@@ -20,6 +20,7 @@
   "homepage": "https://github.com/GuillermoRivera/platziverse#readme",
   "devDependencies": {
     "ava": "^0.22.0",
+    "nyc": "^11.4.1",
     "sqlite3": "^3.1.13",
     "standard": "^10.0.3"
   },
